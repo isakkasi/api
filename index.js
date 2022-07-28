@@ -5,16 +5,18 @@ const { cors } = require("./src/middlewares/corsMiddleware");
 const { auth } = require("./src/middlewares/authMiddleware");
 const router = require("./src/routes/router");
 
+const {URI} = require("./src/config/db")
+
 // this.log = console.log.bind( console, '[' + new Date().toLocaleString('en-GB') + ']' );
 
 async function start() {
     try {
         // const db = await mongoose.connect("mongodb://localhost:27017/exam-question");
-        const db = await mongoose.connect("mongodb+srv://qdb:Amentia6J3@qdb.kxljedn.mongodb.net/?retryWrites=true&w=majority");
+        const db = await mongoose.connect(URI);        
 
         console.log(date() + "DB Ready");
     } catch (err) {
-        console.log(date() + "Error connecting to database");
+        console.log(date() + "Error connecting to database: " + err.message);
         return process.exit(1);
     }
 

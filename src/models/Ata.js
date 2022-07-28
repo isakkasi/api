@@ -1,5 +1,9 @@
 
-const { model, Schema, Types } = require('mongoose');
+const { model, Schema, Types, default: mongoose } = require('mongoose');
+
+const {DB} = require('../config/db')
+
+const currentDb = mongoose.connection.useDb(DB)
 
 const ataSchema = new Schema({
     // IntId</th>
@@ -27,9 +31,12 @@ const ataSchema = new Schema({
     },
 }, {
     timestamps: true,
+    
 
 });
 
-const Ata = model('Ata', ataSchema);
+
+
+const Ata = currentDb.model('Ata', ataSchema);
 
 module.exports = Ata;

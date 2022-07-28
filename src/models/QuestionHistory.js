@@ -1,5 +1,9 @@
 const { model, Schema, Types } = require('mongoose');
 
+const {DB} = require('../config/db')
+
+const currentDb = mongoose.connection.useDb(DB)
+
 const questionHistorySchema = new Schema(
     {
         _questionId: {
@@ -26,6 +30,6 @@ const questionHistorySchema = new Schema(
     }
 );
 
-const QuestionHistory = model('QuestionHistory', questionHistorySchema);
+const QuestionHistory = currentDb.model('QuestionHistory', questionHistorySchema);
 
 module.exports = QuestionHistory;

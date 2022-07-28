@@ -1,5 +1,9 @@
 // const {} from 'mongoose'
 
+const {DB} = require('../config/db')
+
+const currentDb = mongoose.connection.useDb(DB)
+
 
 const { model, Schema, Types } = require('mongoose');
 
@@ -44,6 +48,6 @@ const courseSchema = new Schema({
 
 });
 
-const Course = model('Course', courseSchema);
+const Course = currentDb.model('Course', courseSchema);
 
 module.exports = Course;

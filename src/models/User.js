@@ -1,4 +1,6 @@
-// Refractured
+const {DB} = require('../config/db')
+
+const currentDb = mongoose.connection.useDb(DB)
 
 const { model, Schema } = require('mongoose');
 
@@ -28,6 +30,6 @@ userSchema.index(
   }
 );
 
-const User = model('User', userSchema);
+const User = currentDb.model('User', userSchema);
 
 module.exports = User;

@@ -1,5 +1,9 @@
 // Refractured
 
+const {DB} = require('../config/db')
+
+const currentDb = mongoose.connection.useDb(DB)
+
 const {model, Schema, Types: { ObjectId }} = require("mongoose");
 
 const userDetailsSchema = new Schema({
@@ -31,6 +35,6 @@ const userDetailsSchema = new Schema({
 
 });
 
-const UserDetails = model("UserDetails", userDetailsSchema);
+const UserDetails = currentDb.model("UserDetails", userDetailsSchema);
 
 module.exports = UserDetails;

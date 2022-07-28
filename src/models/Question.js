@@ -2,6 +2,10 @@
 
 const { model, Schema, Types } = require('mongoose');
 
+const {DB} = require('../config/db')
+
+const currentDb = mongoose.connection.useDb(DB)
+
 const questionSchema = new Schema(
     {
         question: {
@@ -41,6 +45,6 @@ const questionSchema = new Schema(
     }
 );
 
-const Question = model('Question', questionSchema);
+const Question = currentDb.model('Question', questionSchema);
 
 module.exports = Question;
