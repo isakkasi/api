@@ -1,8 +1,8 @@
 const { model, Schema, mongoose } = require("mongoose");
 
-const {DB} = require('../config/db')
+// const {DB} = require('../config/db')
 
-const currentDb = mongoose.connection.useDb(DB)
+// const currentDb = mongoose.connection.useDb(DB)
 
 const somethingSchema = new Schema({
     something: {
@@ -10,6 +10,7 @@ const somethingSchema = new Schema({
     },
 });
 
-const Something = currentDb.model("Something", somethingSchema);
+// const Something = currentDb.model("Something", somethingSchema);
+const Something = model("Something", somethingSchema);
 
 module.exports = Something;

@@ -6,6 +6,9 @@ exports.getAll = async (query) => {
         const questionId = query.split("=")[1].slice(1, -1);
         return Question.find({ _questionId: questionId }).populate('ata');
     }
+    // console.log('get')
+
+    // return Question.find({}).populate('ata');
     return Question.find({}).populate('ata');
 };
 

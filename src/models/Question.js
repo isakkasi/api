@@ -1,10 +1,10 @@
-// Refractured
-
 const { model, Schema, Types, mongoose } = require('mongoose');
+// require('./Ata')
+// require('./User')
 
-const {DB} = require('../config/db')
+// const { DB } = require('../config/db');
 
-const currentDb = mongoose.connection.useDb(DB)
+// const currentDb = mongoose.connection.useDb(DB);
 
 const questionSchema = new Schema(
     {
@@ -45,6 +45,7 @@ const questionSchema = new Schema(
     }
 );
 
-const Question = currentDb.model('Question', questionSchema);
+const Question = model('Question', questionSchema);
+// const Question = currentDb.model('Question', questionSchema);
 
 module.exports = Question;

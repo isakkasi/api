@@ -1,8 +1,8 @@
-const {DB} = require('../config/db')
 const { model, Schema, mongoose } = require('mongoose');
 
-const currentDb = mongoose.connection.useDb(DB)
+// const {DB} = require('../config/db')
 
+// const currentDb = mongoose.connection.useDb(DB)
 
 const userSchema = new Schema({
   username: {
@@ -30,6 +30,7 @@ userSchema.index(
   }
 );
 
-const User = currentDb.model('User', userSchema);
+// const User = currentDb.model('User', userSchema);
+const User = model('User', userSchema);
 
 module.exports = User;
