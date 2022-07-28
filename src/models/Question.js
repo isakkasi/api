@@ -1,6 +1,6 @@
 // Refractured
 
-const { model, Schema, Types } = require('mongoose');
+const { model, Schema, Types, mongoose } = require('mongoose');
 
 const {DB} = require('../config/db')
 

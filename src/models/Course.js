@@ -5,7 +5,7 @@ const {DB} = require('../config/db')
 const currentDb = mongoose.connection.useDb(DB)
 
 
-const { model, Schema, Types } = require('mongoose');
+const { model, Schema, Types, mongoose } = require('mongoose');
 
 const courseSchema = new Schema({
     // IntId</th>

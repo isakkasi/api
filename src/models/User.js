@@ -1,8 +1,8 @@
 const {DB} = require('../config/db')
+const { model, Schema, mongoose } = require('mongoose');
 
 const currentDb = mongoose.connection.useDb(DB)
 
-const { model, Schema } = require('mongoose');
 
 const userSchema = new Schema({
   username: {
