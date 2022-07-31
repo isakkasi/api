@@ -13,6 +13,10 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  role: {
+    type: String,
+    enum: ["User", "Examiner", "Instructor", "Invigilator", "Admin"],
+},
   // timestamps: true,
 
 }, {

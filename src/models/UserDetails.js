@@ -17,17 +17,13 @@ const userDetailsSchema = new Schema({
         type: String,
         // required: true,
       },
-    role: {
-        type: String,
-        enum: ["User", "Examiner", "Instructor", "Invigilator", "Admin"],
-    },
+    
     dateOfBirth: {
         type: String,
     },
     placeOfBirth: {
         type: String,
     },
-    // timestamps: true,
 
 }, {
     timestamps: true,

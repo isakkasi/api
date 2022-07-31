@@ -27,7 +27,7 @@ router.post("/", async (req, res) => {
             dateTime: Date.now(),
             action: 'create',
             currentValue: JSON.stringify(result),
-            actionBy: req.headers.userid,
+            actionBy: req.user._id,
         })
         console.log("Question created.");
         res.json(result);
@@ -51,7 +51,7 @@ router.put("/:id", preload(questionService), async (req, res) => {
             dateTime: Date.now(),
             action: 'edit',
             currentValue: JSON.stringify(result),
-            actionBy: req.headers.userId,
+            actionBy: req.user._id,
         })
         console.log("Question edited.");
 
@@ -73,7 +73,7 @@ router.delete("/:id", async (req, res) => {
             dateTime: Date.now(),
             action: 'delete',
             currentValue: JSON.stringify(result),
-            actionBy: req.headers.userId,
+            actionBy: req.user._id,
         })
         console.log("Question deleted.");
 
@@ -105,7 +105,7 @@ router.post("/:id/comments", async (req, res) => {
         //     dateTime: Date.now(),
         //     action: 'create',
         //     currentValue: JSON.stringify(result),
-        //     actionBy: req.headers.userid,
+        //     actionBy: req.user._id,
         // })
         console.log("Comment Created.");
         res.json(result);

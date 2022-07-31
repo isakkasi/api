@@ -16,7 +16,7 @@ exports.auth = () => (req, res, next) => {
                 _id: payload._id,
                 token,
             };
-            console.log('------------------------');
+            console.log('Request from: ' + req.user.username);
         } catch (err) {
             console.error(err);
             return res.status(401).json({ message: "Invalid access token. Please log in" });
