@@ -1,9 +1,11 @@
 //Refractured
 
+
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
 const UserDetails = require('../models/UserDetails');
+const UserRoles = require('../models/UserRoles');
 
 const blacklist = new Set();
 
@@ -86,3 +88,7 @@ function createSession(user) {
         role: user.role,
     };
 }
+
+exports.editUserRoles = (role, configuration) => UserRoles.findByIdAndUpdate({ role: role }, configuration);
+exports.createUserRoles = (configuration) => UserRoles.create(configuration);
+exports.getRoleConfiguration = (role) => UserRoles.findOne({role: role});

@@ -68,4 +68,38 @@ router.get('/logout', cors(), auth(), (req, res) => {
     res.status(204).end();
 });
 
+router.post('/role', async (req, res) => {
+    try {
+        const result = await userService.createUserRoles(req.body)
+        res.status(204).json(result)
+        
+    } catch (err) {
+        console.log(err);
+        res.status(200).json({message: err})
+    }
+})
+
+router.post('/role/:role', async (req, res) => {
+    const role = req.params.role;
+    try {
+        const result = await userService.editUserRoles(role, req.body)
+        res.status(204).json(result)
+        
+    } catch (err) {
+        console.log(err);
+        res.status(200).json({message: err})
+    }
+})
+
+router.get('/role/:role', async (req, res) => {
+    const role = req.params.role;
+    try {
+        const result = await userService.getRoleConfiguration(role);
+        res.status(201).json(result);
+    } catch (err) {
+        console.log(err);
+        res.status(400).json({ message: err.message });
+    }
+});
+
 module.exports = router;
