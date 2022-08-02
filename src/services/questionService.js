@@ -31,3 +31,5 @@ exports.createComment = (questionId, comment) => QuestionComments.create(
     });
 
 exports.getAllComments = (id) => QuestionComments.find({questionId: id}).populate('author')
+
+exports.deleteComment = (id) => QuestionComments.deleteOne({_id: id});

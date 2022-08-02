@@ -24,6 +24,11 @@ const userDetailsSchema = new Schema({
     placeOfBirth: {
         type: String,
     },
+    role: {
+        type: String,
+        enum: ["User", "Examiner", "Instructor", "Invigilator", "Admin"],
+        default: "User",
+    },
 
 }, {
     timestamps: true,

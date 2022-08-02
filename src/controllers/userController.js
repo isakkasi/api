@@ -102,4 +102,18 @@ router.get('/role/:role', async (req, res) => {
     }
 });
 
+router.put('/details/:userId', async (req, res) => {
+    const userId = req.params.userId;
+    console.log(userId);
+    console.log(req.body);
+    try {
+        const result = await userService.updateUserDetails(userId, req.body);
+        console.log(result);
+        res.status(201).json(result);
+    } catch (err) {
+        console.log(err);
+        res.status(400).json({ message: err.message });
+    }
+});
+
 module.exports = router;

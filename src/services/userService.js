@@ -15,6 +15,8 @@ exports.getAll = async () => await User.find({});
 
 exports.getUserDetails = async (id) => await UserDetails.findOne({ userId: id });
 
+exports.updateUserDetails = async (id, data) => await UserDetails.findOneAndUpdate({userId: id}, data)
+
 exports.createUserDetails = async ({ userId, fullName, email, role, dateOfBirth, placeOfBirth }) =>
     await UserDetails.create({
         userId: userId,
@@ -28,16 +30,17 @@ exports.createUserDetails = async ({ userId, fullName, email, role, dateOfBirth,
 exports.register = async (username, password, role) => {
     // check if username is taken
     const usernameTaken = await User.findOne({ username: username });
-
+    
     if (usernameTaken) {
         throw new Error('Username is taken');
     }
-
+    
     // hash password
     const hashedPassword = await bcrypt.hash(password, 10);
-
+    
     // store user
     const user = await User.create({ username: username, password: hashedPassword, role: role });
+    await UserDetails.create({userId: user._id})
 
     return createSession(user);
 };

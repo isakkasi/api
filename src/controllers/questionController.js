@@ -116,4 +116,15 @@ router.post("/:id/comments", async (req, res) => {
     }
 });
 
+router.delete('/:commentId/comments', async (req, res) => {
+     try {
+        const result  = await questionService.deleteComment(req.params.commentId);
+        console.log('Comment deleted');
+        res.json(result)
+     } catch (err) {
+        console.log(err);
+        res.status(400).json({message: err})
+     }
+})
+
 module.exports = router;
