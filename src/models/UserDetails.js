@@ -13,6 +13,9 @@ const userDetailsSchema = new Schema({
     fullName: {
         type: String,
     },
+    avatar: {
+        type: String,
+    },
     email: {
         type: String,
         // required: true,

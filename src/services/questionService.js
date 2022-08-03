@@ -1,5 +1,6 @@
 const Question = require("../models/Question");
 const QuestionComments = require("../models/QuestionComments");
+const QuestionHistory = require("../models/QuestionHistory");
 
 exports.getAll = async (query) => {
     if (query) {
@@ -33,3 +34,5 @@ exports.createComment = (questionId, comment) => QuestionComments.create(
 exports.getAllComments = (id) => QuestionComments.find({questionId: id}).populate('author')
 
 exports.deleteComment = (id) => QuestionComments.deleteOne({_id: id});
+
+exports.getHistory = (id) => QuestionHistory.find({_questionId: id})

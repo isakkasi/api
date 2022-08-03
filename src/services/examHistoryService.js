@@ -1,14 +1,14 @@
-const QuestionHistory = require("../models/QuestionHistory");
+const ExamHistory = require("../models/ExamHistory");
 
 exports.getAll = async (query) => {
     if (query) {
-        const questionId = query.split("=")[1].slice(1, -1);
-        return QuestionHistory.find({ _questionId: questionId });
+        const examId = query.split("=")[1].slice(1, -1);
+        return ExamHistory.find({ _examId: examId });
     }
-    return QuestionHistory.find({});
+    return ExamHistory.find({});
 };
 
-exports.create = async (data) => QuestionHistory.create(data);
+exports.create = async (data) => ExamHistory.create(data);
 
 // exports.getById = async (id) => {
 //     return Question.findOne({_id: id});

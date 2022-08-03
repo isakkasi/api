@@ -44,6 +44,7 @@ router.get("/:id", preload(questionService), (req, res) => {
 
 // router.put("/:id", preload(questionService), isOwner(), async (req, res) => {
 router.put("/:id", preload(questionService), async (req, res) => {
+    console.log(req.body);
     try {
         const result = await questionService.updateById(res.locals.item, req.body);
         await questionHistoryService.create({
@@ -126,5 +127,18 @@ router.delete('/:commentId/comments', async (req, res) => {
         res.status(400).json({message: err})
      }
 })
+
+router.get("/:id/history", async (req, res) => {
+    // let id = req.params.id;
+    try {
+        let result = await questionService.getHistory(req.params.id)
+        res.json(result);
+        // console.log(result);
+        // res.json(await questionService.getAll(req.query.where)); --------- use this for normal operation
+    } catch (err) {
+        res.status(400).json({ message: "Bad request" });
+    }
+});
+
 
 module.exports = router;

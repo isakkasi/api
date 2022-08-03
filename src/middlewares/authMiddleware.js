@@ -7,7 +7,7 @@ exports.auth = () => (req, res, next) => {
     const token = req.headers["x-authorization"];
     // console.log(req.headers);
     
-    if (token) {
+    if (token && token !== 'undefined') {
         try {
             const payload = validateToken(token);
             
