@@ -17,7 +17,7 @@ router.get('/list', async (req, res) => {
     }
 });
 
-router.get('/details/:id', async (req, res) => {
+router.get('/details/:id?', async (req, res) => {
     try {
         const result = await userService.getUserDetails(req.params.id);
         res.status(201).json(result);
@@ -26,6 +26,7 @@ router.get('/details/:id', async (req, res) => {
         res.status(400).json({ message: err.message });
     }
 });
+
 
 router.post('/details', async (req, res) => {
     try {

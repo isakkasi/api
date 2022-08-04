@@ -13,7 +13,15 @@ const JWT_SECRET = 'secret-word-for-signing-the-jwt';
 
 exports.getAll = async () => await User.find({});
 
-exports.getUserDetails = async (id) => await UserDetails.findOne({ userId: id });
+exports.getUserDetails = async (id) => {
+    if(id) {
+        return await UserDetails.findOne({ userId: id });
+
+    } else {
+        return await UserDetails.find({})
+    }
+    
+}
 
 exports.updateUserDetails = async (id, data) => await UserDetails.findOneAndUpdate({userId: id}, data)
 
