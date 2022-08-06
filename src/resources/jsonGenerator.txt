@@ -1,0 +1,29 @@
+
+https://json-generator.com/
+
+## Generate questions
+[
+  '{{repeat(10)}}',
+  {
+    question: '{{lorem(1, "sentence")}}',
+    asnA: '{{lorem(4, "words")}}',
+     asnB: '{{lorem(4, "words")}}',
+     asnC: '{{lorem(4, "words")}}',
+    correctAns: '{{random("asnA", "ansB", "ansC")}}',
+    level: '{{random(1, 2, 3)}}'
+    
+    
+  }
+]
+
+## Generate courses
+[
+  '{{repeat(10)}}',
+  {
+    internalRef: 'A0',
+    title: '{{random("A320 (CFM56-5) Cat. B2", "B737Cl (CFM56-3) Cat. B2", "A320 (V2500) Cat. B1.1", "B737Cl (CFM56-3) Cat. B1.1", "B737NG (CFM56-7) Cat. B2", "B737NG (CFM56-7) Cat. B1.1")}}',
+    location: '{{random("Sofia, BG", "Budapest, HU", "Luqa, MT", "VArna, BG")}}',
+    students: '{{integer(8, 26)}}'
+  }
+]
+
