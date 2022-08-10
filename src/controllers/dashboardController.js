@@ -11,6 +11,7 @@ router.get('/', async (req, res) => {
         result.questions = await dashboardService.questionsCount();
         result.ata = await dashboardService.ataCount();
         result.courses = await dashboardService.coursesCount();
+        result.users = await dashboardService.usersCount();
         res.json(result);
     } catch (err) {
         res.status(400).json({ message: 'Bad request' });

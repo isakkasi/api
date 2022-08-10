@@ -1,6 +1,7 @@
 const Ata = require("../models/Ata");
 const Course = require("../models/Course");
 const Question = require("../models/Question");
+const User = require("../models/User");
 
 
 exports.questionsCount = async (query) => {
@@ -13,4 +14,5 @@ exports.questionsCount = async (query) => {
 
 exports.ataCount = async (query) => Ata.countDocuments({});
 exports.coursesCount = async (query) => Course.countDocuments({});
+exports.usersCount = async (query) => User.countDocuments({});
 
