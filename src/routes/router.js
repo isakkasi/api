@@ -16,7 +16,7 @@ router.use('/ata', ataController);
 router.use('/type', typeController);
 router.use('/dashboard', dashboardController);
 router.use('/exam', examController);
-router.use('/seed', seedController);
+// router.use('/seed', seedController);
 router.use('/pdf', pdfController);
 
 
