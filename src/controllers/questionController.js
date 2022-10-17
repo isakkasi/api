@@ -57,6 +57,7 @@ router.put("/:id", preload(questionService), async (req, res) => {
         console.log("Question edited.");
 
         res.json(result);
+        console.log(result);
     } catch (err) {
         console.error(err);
         res.status(400).json({ message: "Request error" });

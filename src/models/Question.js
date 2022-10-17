@@ -32,8 +32,17 @@ const questionSchema = new Schema(
             type: Types.ObjectId,
             ref: 'Ata',
         },
+        type: [
+            {
+                type: Types.ObjectId,
+                ref: 'Type',
+            },
+        ],
         level: {
             type: Number,
+        },
+        cat: {
+            type: String,
         },
         author: {
             type: Types.ObjectId,

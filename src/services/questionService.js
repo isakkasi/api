@@ -19,7 +19,7 @@ exports.getById = async (id, populated) => {
     return Question.findOne({ _id: id }).populate('ata').populate('author');
 };
 
-exports.updateById = async (id, question) => (await Question.findByIdAndUpdate({ _id: id._id }, question)).populate('ata');
+exports.updateById = async (id, question) => (await Question.findByIdAndUpdate({ _id: id._id }, question, {returnDocument: 'after'})).populate('ata')
 
 exports.deleteById = (id) => Question.findByIdAndDelete(id);
 

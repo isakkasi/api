@@ -13,7 +13,7 @@ const typeSchema = new Schema(
         // <th>Start</th>
         // <th>End<
 
-        type: {
+        short: {
             type: String,
             required: true,
         },
