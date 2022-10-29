@@ -16,7 +16,7 @@ exports.auth = () => (req, res, next) => {
                 _id: payload._id,
                 token,
             };
-            console.log('Request from: ' + req.user.username);
+            console.log(`${date()} ${req.method} to "${req.path}" from ${req.user.username} (${req.hostname})`);
         } catch (err) {
             console.error(err);
             return res.status(401).json({ message: "Invalid access token. Please log in" });
@@ -24,4 +24,9 @@ exports.auth = () => (req, res, next) => {
     }
 
     next();
+};
+
+
+const date = () => {
+    return "[" + new Date().toLocaleString("en-GB") + "] ";
 };
