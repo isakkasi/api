@@ -11,7 +11,7 @@ exports.getAll = async (query) => {
 
 exports.create = async (question) => Exam.create(question);
 
-exports.getById = async (id) => Exam.findOne({ _id: id });
+exports.getById = async (id) => Exam.findOne({ _id: id }).populate('course');
 
 exports.updateById = (id, exam) => Exam.findByIdAndUpdate({ _id: id._id }, exam);
 
