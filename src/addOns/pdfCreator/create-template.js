@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
 
 // const PDF = ({ data }: PDFProps) => {
 const PDF = (data) => {
-    // console.log(data);
+    console.log(data);
     return React.createElement(
         Document,
         null,
@@ -113,27 +113,7 @@ const PDF = (data) => {
                             Text,
                             { style: styles.note },
 
-                            `Note:You can mark on the question sheet but it will not be considered during the marking. After the exam is completed, you shall return it to the invigilator. You are not allowed to take pictures of it, or any other means of copying the questions.
-                            Note:You can mark on the question sheet but it will not be considered during the marking. After the exam is completed, you shall return it to the invigilator. You are not allowed to take pictures of it, or any other means of copying the questions.
-                            Note:You can mark on the question sheet but it will not be considered during the marking. After the exam is completed, you shall return it to the invigilator. You are not allowed to take pictures of it, or any other means of copying the questions.
-                            Note:You can mark on the question sheet but it will not be considered during the marking. After the exam is completed, you shall return it to the invigilator. You are not allowed to take pictures of it, or any other means of copying the questions.
-                            Note:You can mark on the question sheet but it will not be considered during the marking. After the exam is completed, you shall return it to the invigilator. You are not allowed to take pictures of it, or any other means of copying the questions.
-                            Note:You can mark on the question sheet but it will not be considered during the marking. After the exam is completed, you shall return it to the invigilator. You are not allowed to take pictures of it, or any other means of copying the questions.
-                            Note:You can mark on the question sheet but it will not be considered during the marking. After the exam is completed, you shall return it to the invigilator. You are not allowed to take pictures of it, or any other means of copying the questions.
-                            Note:You can mark on the question sheet but it will not be considered during the marking. After the exam is completed, you shall return it to the invigilator. You are not allowed to take pictures of it, or any other means of copying the questions.
-                            Note:You can mark on the question sheet but it will not be considered during the marking. After the exam is completed, you shall return it to the invigilator. You are not allowed to take pictures of it, or any other means of copying the questions.
-                            Note:You can mark on the question sheet but it will not be considered during the marking. After the exam is completed, you shall return it to the invigilator. You are not allowed to take pictures of it, or any other means of copying the questions.
-                            Note:You can mark on the question sheet but it will not be considered during the marking. After the exam is completed, you shall return it to the invigilator. You are not allowed to take pictures of it, or any other means of copying the questions.
-                            Note:You can mark on the question sheet but it will not be considered during the marking. After the exam is completed, you shall return it to the invigilator. You are not allowed to take pictures of it, or any other means of copying the questions.
-                            Note:You can mark on the question sheet but it will not be considered during the marking. After the exam is completed, you shall return it to the invigilator. You are not allowed to take pictures of it, or any other means of copying the questions.
-                            Note:You can mark on the question sheet but it will not be considered during the marking. After the exam is completed, you shall return it to the invigilator. You are not allowed to take pictures of it, or any other means of copying the questions.
-                            Note:You can mark on the question sheet but it will not be considered during the marking. After the exam is completed, you shall return it to the invigilator. You are not allowed to take pictures of it, or any other means of copying the questions.
-                            Note:You can mark on the question sheet but it will not be considered during the marking. After the exam is completed, you shall return it to the invigilator. You are not allowed to take pictures of it, or any other means of copying the questions.
-                            Note:You can mark on the question sheet but it will not be considered during the marking. After the exam is completed, you shall return it to the invigilator. You are not allowed to take pictures of it, or any other means of copying the questions.
-                            Note:You can mark on the question sheet but it will not be considered during the marking. After the exam is completed, you shall return it to the invigilator. You are not allowed to take pictures of it, or any other means of copying the questions.
-                            Note:You can mark on the question sheet but it will not be considered during the marking. After the exam is completed, you shall return it to the invigilator. You are not allowed to take pictures of it, or any other means of copying the questions.
-                            Note:You can mark on the question sheet but it will not be considered during the marking. After the exam is completed, you shall return it to the invigilator. You are not allowed to take pictures of it, or any other means of copying the questions.
-                            Note:You can mark on the question sheet but it will not be considered during the marking. After the exam is completed, you shall return it to the invigilator. You are not allowed to take pictures of it, or any other means of copying the questions.`
+                            data['0'].questions[0].question
                         )
                     )
                 )
@@ -176,6 +156,7 @@ const PDF = (data) => {
             //         ))
             //     ))
             // ),
+            // React.createElement(View, { style: styles.footer }, React.createElement(Text, null, ' Page No'))
             React.createElement(View, { style: styles.footer }, React.createElement(Text, null, ' Page No'))
         )
     );
