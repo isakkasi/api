@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const express = require("express");
+const cors = require("cors")
 
-const { cors } = require("./src/middlewares/corsMiddleware");
+// const { cors } = require("./src/middlewares/corsMiddleware");
 const { auth } = require("./src/middlewares/authMiddleware");
 const router = require("./src/routes/router");
 
