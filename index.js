@@ -23,9 +23,11 @@ async function start() {
 
     const app = express();
 
+    let corsOptions = {origin: "https://qdb.pc-acad.com"}
+
     app.use(express.urlencoded({ extended: false }));
     app.use(express.json());
-    app.use(cors());
+    app.use(cors(corsOptions));
     app.use(auth());
 
     app.use(router);
