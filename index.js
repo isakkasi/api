@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const express = require("express");
-const cors = require("cors")
+// const cors = require("cors")
 
-// const { cors } = require("./src/middlewares/corsMiddleware");
+const { cors } = require("./src/middlewares/corsMiddleware");
 const { auth } = require("./src/middlewares/authMiddleware");
 const router = require("./src/routes/router");
 
@@ -23,11 +23,11 @@ async function start() {
 
     const app = express();
 
-    let corsOptions = {origin: "https://qdb.pc-acad.com"}
+    // let corsOptions = {origin: "https://qdb.pc-acad.com"}
 
     app.use(express.urlencoded({ extended: false }));
     app.use(express.json());
-    app.use(cors(corsOptions));
+    app.use(cors());
     app.use(auth());
 
     app.use(router);
